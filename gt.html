@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Prisoner's Dilemma with Monte Carlo Simulation"/>
+  <meta property="og:url" content="https://siu2lh.com/gt.html"/>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f3f4f6;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        gap: 10px;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .label-col {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        padding: 10px;
+    }
+    .label-top {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 5px;
+    }
+    .label-coop { color: #0a8754; }
+    .label-cheat { color: #c62828; }
+    .quadrant {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .quadrant.q1 { background: #e6f7ed; }
+    .quadrant.q2 { background: #ffe6e6; }
+    .quadrant.q3 { background: #fff9e6; }
+    .quadrant.q4 { background: #f0e6ff; }
+    .quadrant h3 {
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+    .player-inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .input-group {
+        display: flex;
+        flex-direction: column;
+    }
+    input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .runs-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .results {
+        margin-top: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    </style>
+    <title>Prisoner's Dilemma with Monte Carlo Simulation</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+  <h1>Prisoner's Dilemma Game with Monte Carlo Simulation</h1>
+
+  <div class="runs-container">
+    <label for="num_runs"><strong>Number of Runs:</strong></label>
+    <input type="number" id="num_runs" value="10000" min="1">
+  </div>
+
+  <div class="grid-wrapper">
+    <!-- Empty corner -->
+    <div></div>
+    <!-- Top labels -->
+    <div class="label-top label-coop">Cooperate</div>
+    <div class="label-top label-cheat">Cheat</div>
+
+    <!-- Left labels + quadrants -->
+    <div class="label-col label-coop">Cooperate</div>
+    <div class="quadrant q1">
+      <h3>Q1</h3>
+      <div class="player-inputs">
+        <div class="input-group">
+          <label>Player 1 Min</label>
+          <input type="number" id="p1_q1_min" value="0">
+          <label>Player 1 Max</label>
+          <input type="number" id="p1_q1_max" value="0">
+        </div>
+        <div class="input-group">
+          <label>Player 2 Min</label>
+          <input type="number" id="p2_q1_min" value="0">
+          <label>Player 2 Max</label>
+          <input type="number" id="p2_q1_max" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="quadrant q2">
+      <h3>Q2</h3>
+      <div class="player-inputs">
+        <div class="input-group">
+          <label>Player 1 Min</label>
+          <input type="number" id="p1_q2_min" value="0">
+          <label>Player 1 Max</label>
+          <input type="number" id="p1_q2_max" value="0">
+        </div>
+        <div class="input-group">
+          <label>Player 2 Min</label>
+          <input type="number" id="p2_q2_min" value="0">
+          <label>Player 2 Max</label>
+          <input type="number" id="p2_q2_max" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="label-col label-cheat">Cheat</div>
+    <div class="quadrant q3">
+      <h3>Q3</h3>
+      <div class="player-inputs">
+        <div class="input-group">
+          <label>Player 1 Min</label>
+          <input type="number" id="p1_q3_min" value="0">
+          <label>Player 1 Max</label>
+          <input type="number" id="p1_q3_max" value="0">
+        </div>
+        <div class="input-group">
+          <label>Player 2 Min</label>
+          <input type="number" id="p2_q3_min" value="0">
+          <label>Player 2 Max</label>
+          <input type="number" id="p2_q3_max" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="quadrant q4">
+      <h3>Q4</h3>
+      <div class="player-inputs">
+        <div class="input-group">
+          <label>Player 1 Min</label>
+          <input type="number" id="p1_q4_min" value="0">
+          <label>Player 1 Max</label>
+          <input type="number" id="p1_q4_max" value="0">
+        </div>
+        <div class="input-group">
+          <label>Player 2 Min</label>
+          <input type="number" id="p2_q4_min" value="0">
+          <label>Player 2 Max</label>
+          <input type="number" id="p2_q4_max" value="0">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button onclick="runSimulation()">Run</button>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <script>
+    function game(p1_q1, p1_q2, p1_q3, p1_q4, p2_q1, p2_q2, p2_q3, p2_q4) {
+      if ((p1_q1 && p1_q3) > (p1_q2 || p1_q4)) {
+        if (p2_q1 > p2_q3) return "Q1";
+        if (p2_q3 > p2_q1) return "Q3";
+      }
+      if ((p1_q2 && p1_q4) > (p1_q1 || p1_q3)) {
+        if (p2_q2 > p2_q4) return "Q2";
+        if (p2_q4 > p2_q2) return "Q4";
+      }
+
+      const p1_values = [p1_q1, p1_q2, p1_q3, p1_q4];
+      const p2_values = [p2_q1, p2_q2, p2_q3, p2_q4];
+
+      const p1_quad = p1_values.indexOf(Math.max(...p1_values)) + 1;
+      const p2_quad = p2_values.indexOf(Math.max(...p2_values)) + 1;
+
+      if (p1_quad === p2_quad) return `Q${p1_quad}`;
+
+      if (p1_quad === 1) {
+        if (p2_q3 > p2_q1) {
+          if (p1_q4 > p1_q3) {
+            if (p2_q2 > p2_q4) {
+              if (p1_q1 > p1_q2) return "No Equilibrium";
+              else return "Q2";
+            } else return "Q4";
+          } else return "Q3";
+        } else return "Q1";
+      }
+      if (p1_quad === 2) {
+        if (p2_q4 > p2_q2) {
+          if (p1_q3 > p1_q4) {
+            if (p2_q1 > p2_q3) {
+              if (p1_q2 > p1_q1) return "No Equilibrium";
+              else return "Q1";
+            } else return "Q3";
+          } else return "Q4";
+        } else return "Q2";
+      }
+      if (p1_quad === 3) {
+        if (p2_q1 > p2_q3) {
+          if (p1_q2 > p1_q1) {
+            if (p2_q4 > p2_q2) {
+              if (p1_q3 > p1_q4) return "No Equilibrium";
+              else return "Q4";
+            } else return "Q2";
+          } else return "Q1";
+        } else return "Q3";
+      }
+      if (p1_quad === 4) {
+        if (p2_q2 > p2_q4) {
+          if (p1_q1 > p1_q2) {
+            if (p2_q3 > p2_q1) {
+              if (p1_q4 > p1_q3) return "No Equilibrium!";
+              else return "Q3";
+            } else return "Q1";
+          } else return "Q2";
+        } else return "Q4";
+      }
+    }
+
+    function randInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function runSimulation() {
+      const runs = parseInt(document.getElementById("num_runs").value);
+      let coop_coop = 0, cheat_coop = 0, coop_cheat = 0, cheat_cheat = 0, no_eq = 0;
+
+      const p1_q1_range = [parseInt(document.getElementById("p1_q1_min").value), parseInt(document.getElementById("p1_q1_max").value)];
+      const p1_q2_range = [parseInt(document.getElementById("p1_q2_min").value), parseInt(document.getElementById("p1_q2_max").value)];
+      const p1_q3_range = [parseInt(document.getElementById("p1_q3_min").value), parseInt(document.getElementById("p1_q3_max").value)];
+      const p1_q4_range = [parseInt(document.getElementById("p1_q4_min").value), parseInt(document.getElementById("p1_q4_max").value)];
+
+      const p2_q1_range = [parseInt(document.getElementById("p2_q1_min").value), parseInt(document.getElementById("p2_q1_max").value)];
+      const p2_q2_range = [parseInt(document.getElementById("p2_q2_min").value), parseInt(document.getElementById("p2_q2_max").value)];
+      const p2_q3_range = [parseInt(document.getElementById("p2_q3_min").value), parseInt(document.getElementById("p2_q3_max").value)];
+      const p2_q4_range = [parseInt(document.getElementById("p2_q4_min").value), parseInt(document.getElementById("p2_q4_max").value)];
+
+      for (let i = 0; i < runs; i++) {
+        const p1_q1 = randInt(...p1_q1_range);
+        const p1_q2 = randInt(...p1_q2_range);
+        const p1_q3 = randInt(...p1_q3_range);
+        const p1_q4 = randInt(...p1_q4_range);
+
+        const p2_q1 = randInt(...p2_q1_range);
+        const p2_q2 = randInt(...p2_q2_range);
+        const p2_q3 = randInt(...p2_q3_range);
+        const p2_q4 = randInt(...p2_q4_range);
+
+        const result = game(p1_q1, p1_q2, p1_q3, p1_q4, p2_q1, p2_q2, p2_q3, p2_q4);
+
+        if (result === "Q1") coop_coop++;
+        if (result === "Q2") cheat_coop++;
+        if (result === "Q3") coop_cheat++;
+        if (result === "Q4") cheat_cheat++;
+        if (result.includes("No Equilibrium")) no_eq++;
+      }
+
+      const q1_outcome = (coop_coop / runs) * 100;
+      const q2_outcome = (cheat_coop / runs) * 100;
+      const q3_outcome = (coop_cheat / runs) * 100;
+      const q4_outcome = (cheat_cheat / runs) * 100;
+      const no_eq_outcome = (no_eq / runs) * 100;
+
+      document.getElementById("results").innerHTML = `
+        <h3>Results</h3>
+        <p><strong>Q1: Likelihood that Player 2 Cooperates when Player 1 Cooperates:</strong> ${q1_outcome.toFixed(2)}%</p>
+        <p><strong>Q2: Likelihood that Player 2 Cooperates when Player 1 Cheats:</strong> ${q2_outcome.toFixed(2)}%</p>
+        <p><strong>Q3: Likelihood that Player 2 Cheats when Player 1 Cooperates:</strong> ${q3_outcome.toFixed(2)}%</p>
+        <p><strong>Q4: Likelihood that Player 2 Cheats when Player 1 Cheats:</strong> ${q4_outcome.toFixed(2)}%</p>
+        <p><strong>Likelihood of No Equilibrium:</strong> ${no_eq_outcome.toFixed(2)}%</p>
+      `;
+    }
+  </script>
+</body>
+</html>
