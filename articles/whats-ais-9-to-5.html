@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="What's AI's 9-to-5?"/>
+	<meta property="og:url" content="https://siu2lh.com/articles/whats-ais-9-to-5.html"/>
+	<style>
+		body {
+			background-color: #000000;
+		}
+		h1 {color: #000000;}
+		p {
+			color: #FFFFFF;
+			font-family: "Georgia";
+		}
+
+		a:link {
+			color: #FF7A7A;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		
+		a:visited {
+			color: #FF7A7A;
+			background-color: transparent;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: #00FFFF;
+			background-color: transparent;
+			text-decoration: none;
+		}
+
+		.h1_recentangle {
+			height: 80px;
+			width: 100%;
+			background-color: #000000;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			margin: 0;
+		}
+
+		.post_window {
+			height: 80%;
+			width: 50%;
+			background-color: #000000;
+			border: solid 2px #FFFFFF;
+			padding: 50px;
+			text-align: justify;
+			text-justify: inter-word;
+			align-items: center;
+			display: flex;
+			transition: width 0.5s, height 0.5s;
+			box-shadow: 0 0 2px #FFFFFF;
+		}
+
+		.post-title {
+			font-weight: bold;
+			font-size: 24px;
+			font-family: "Georgia";
+		}
+
+	</style>
+	<title>What's AI's 9-to-5?</title>
+	<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+
+<body>
+	<a href="https://www.siu2lh.com">
+		<div class="h1_recentangle">
+			<h1>
+				<font color="FF7A7A">.</font>
+			</h1>
+		</div>
+	</a>
+	<br>
+	<center>
+
+		<div class="post_window">
+			<p>
+				<span class="post-title">What's AI's 9-to-5?</span>
+				<br>
+				<br>
+				I have sometimes been accused of thinking generative AI will have <i>no</i> positive effects on organisational productivity, but I do not actually think this. My main gripe is that productivity is hard to measure, especially productivity in the knowledge economy, and so we all need to be sceptical as to <a href="https://www.ft.com/content/88245052-1e68-41e1-9678-fcbbc5889e93">where value is actually created</a>, and thus whether generative AI is supporting, or damaging, that value creation process. In the instances that I think organisations do unproductive things, I am largely agnostic about generative AI--even the best technology will fail if organisations are poorly run and value creation poorly understood.
+				<br>
+				<br>
+				But I want to be more positive, and assume that actually, yes, generative AI has some positive productivity effect. Call it a capitulation to the passive aggressive rhetoric of generative AI boosters. If generative AI has a positive productivity effect, we still need to ask a few questions. The first is whether this is a relative productivity effect, whereby costs are reduced but output does not rise (which can bring an organisation to a new productivity plateau, but is unlikely to lead to continuous productivity gains), or an absolute productivity effect, whereby output increases while inputs remain constant (which can lead to continous productivity gains as increasing output creates new opportunities and challenges for the organisation to overcome). The second question, related to the first, is whether generative AI impacts frontline business activities, like producing final products, or backroom business activities, like raising invoices, writing reports, etc.
+				<br>
+				<br>
+				I am sure some readers have a good idea where I am going with this, but I do not have to be a polemist in this particular instance. There are a few sources of data we can consult to draw reasonable inferences (though by no means solid conclusions) as to whether generative AI has an absolute rather than relative productivity effect, and whether it impacts frontline rather than backroom business activities. These data are ones I have been quite interested in in recent weeks, and on which I intend to write more in a more formal (e.g., academic) capacity.
+				<br>
+				<br>
+				Firstly, we can examine what generative AI companies <i>themselves</i> say their products are being used for. Two instructive reports come from OpenAI (titled <a href="https://www.nber.org/papers/w34255"><i>How People Use ChatGPT</i></a>) and Anthropic (titled the <a href="https://assets.anthropic.com/m/218c82b858610fac/original/Economic-Index.pdf"><i>Economic Index Report</i></a>). Secondly, there is the US Census Bureau's <a href="https://www.census.gov/programs-surveys/btos.html"><i>Business Trends and Outlook Survey</i></a> (BTOS) which, since 2023, has featured two interesting questions about AI and business use (some readers might have seen a graph floating around LinkedIn and other social media a few weeks ago, which claimed to show AI use by large businesses actually <i>falling</i>. This 'result' comes from the same BTOS data I will discuss here. It is not misinformation <i>per se</i>--rather, it is a misinterpretation of what I would guess is just seasonality. The drop happened in early August 2025, when people were on holiday. Towards the end of August, it bounces back, and as of earlier September (which is where the dataset I am using finishes), usage has <i>never been higher</i>. It is also important to consider the specific question that the BTOS dataset asks, but I will get to this...). Finally, we might also consider additional findings, such as the infamous <a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf">MIT NANDA report</a>, or various journalist investigations. For those interested, I suggest reading the <i>Establishing Consumer Dependencies</i> subsecton in this <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5590692">working paper</a> of mine, from where I go into a bit more detail.
+				<br>
+				<br>
+				I am going to focus on the two reports (OpenAI's and Anthropic's) and the BTOS data through to the end of September. Starting with the reports, it is important to note that these reports are not directly comparable, as they measure different things, and use different methodologies. Nevertheless, we can bring their respective findings together in a discussion of generative AI and productivity. 
+				<br>
+				<br>
+				Both reports focus on the question of <i>how</i> people use generative AI, or <i>what</i> people are using generative AI for. Anthropic finds "computer and mathematical" to be the main use of Claude, their large language model (38.9%). Use in "education instruction and library" is up from 9.3% in January to 12.7% in August; similarly, use in "life, physical, and social science" and "office and administration support" are also up, from 6.3% and 7.8% to 7.4% and 8.4%, respectively. However, use in areas like "business and financial operations" and "management" are down, from 5.9% and 4.5% to 3.1% and 2.7%, respectively. Anthropic also report uses based on API access--an access point which is necessarily biased towards those who have greater computing knowledge. Here, troubleshooting software problems is pops up again and again. Frontline stuff, like "develop web application frontend code and components" occurs 6% of the time. Other frontend applications, like "design and develop web interface UI/UX elements" and "create professional marketing, business, and journalistic content" occurs 1.8% and 4.7% of the time, respectively. From Anthropic, then, we have something of a mixed picture. Certaintly, there are some frontline uses being pursued (one might even contend, based on a naive reading of the categories, that frontline applications dominate), but there are also backroom applications being pursued, too.
+				<br>
+				<br>
+				What does the OpenAI report say? The OpenAI report is interesting insofar as it splits analysis into work-related and non-work-related activities, which perhaps helps us untangle how <i>organisations</i> are using generative AI. For work-related uses, 40% involve "Writing", 24.1% involve "Practical Guidance", and 13.5% involve "Information Seeking." Workers are more likely than non-workers to use ChatGPT to gain "Technical Help" (10% <i>versus</i> 5.1%), but less likely to use ChatGPT for "Self-Expression" (1.1% <i>versus</i> 5.3%). Of five job groups, those in "computer-related" work were most frequent users of ChatGPT, followed by those in "Management and Business." Interestingly, though, "Management and Business" workers were most like to use ChatGPT for "Writing," while "Computer-Related" workers were most likely to use it for "Technical Help." As with Anthropic, we therefore conclude a mixed picture in terms of frontline <i>versus</i> backroom, but unlike Anthropic, this picture probably shows more backroom than frontline.
+				<br>
+				<br>
+				As something of a 'headline' summary before considering the BTOS data, it is quite clear that most of the professional usage of generative AI is by those who work with or around programming, followed by management workers. And this, by itself, is interesting. We should pause to recognise that today, generative AI is mostly being used by those who are <i>already</i> best positioned to use it (computer people). This is a bit concerning <i>three years</i> on from ChatGPT being released. Another 'headline' of these reports is that there is not a killing blow example of generative AI being used to drive frontline stuff. Again, considering computer-related work, we find some examples of this. But we also find evidence of generative AI being used a lot to troubleshoot problems, which I would more likely consider backroom stuff, and which demands we understand <i>where</i> the problems have come from (for instance, is this troubleshooting 'code churn' from bad AI-generated code?; is it the result of hiring a less experienced person, whereas a more experienced person would immediately know the solution?; and so on). It is interesting that both reports demonstrate that people who occupy management roles are an important part of the generative AI userbase, though this is more pronounced for OpenAI than for Anthropic. To an extent, we should place more importance on the OpenAI numbers, because ChatGPT is so much more popular than Claude. Here, we see that management is a big user of ChatGPT, and that they are the main user of ChatGPT for "Writing." This does not scream 'frontline' value creation. Rather, it screams 'backroom' bureaucracy.
+				<br>
+				<br>
+				Finally, let's consider the BTOS data. The BTOS data is very useful for several reasons. Firstly, it breaks down responses by firm size, which could be important. Secondly, it uses the most <i>optimistic</i> question about AI adoption possible, which is a good countermeasure for someone who is sceptical of AI, such as myself. Specifically, it asks whether a business has, in the last two weeks, "use[d] Artificial Intelligence (AI) in producing goods or services?" This does not just mean <i>generative</i> AI; it means anything which could vaguely be considered AI, including something like voice recognition. Thirdly, also note that the question is about "producing goods or services," this is to say, it is about frontline activities, rather than backroom. Thus, a large number of positive responses to this question implies high frontline use of generative AI, even though it will be less than the headline figure, because the question captures all AI applications. Inversely, low "yes" responses suggests <i>even lower</i> frontline usage of generative AI, and that generative AI is typically used (if at all) in backroom applications. The figures of concern, within my <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5590692">working paper</a>, are figures 2 and 3.
+				<br>
+				<br>
+				In September 2025, about 13% of large businesses (250<) responded "yes" to the BTOS question. Micro businesses (1-4 people) responded "yes" 10% of the time. All other categories (SMEs) responded "yes" less than 10%. Now, from 2023 these figures have steadily risen; but also, for the most part, these figures were also (slightly) higher in the early summer months of 2025 than they are now (this is why the earlier viral graph of 'businesses turning away from generative AI' was kind of right and kind of wrong. The question is about AI in general, so we do not know if businesses are turning away from generative AI. But business in general are not right now being especially quick to embrace AI <i>in general</i>). What can we draw from this? Firstly, 13% is a very low number, especially when we consider that this covers <i>all</i> AI applications, not just generative AI. In general, most businesses are not using AI in producing goods and services, regardless of size, and therefore if businesses are using generative AI, these applications are likely to be backroom applications, rather than frontline applications. In other words, generative AI is not writing the next best-seller; it is writing the publisher's quarterly report for senior management. The rising, but only <i>steadily</i> rising, numbers also suggest that the productivity gains from AI (again, in <i>general</i>) are not so large that they are creating competitive pressures for others to adopt these technologies. To put it another way, I doubt AI is offering a 10% productivity boost because rivals are not acting as if they're falling behind. If we follow Brynjolfsson's <a href="https://www.nber.org/papers/w25148">J-curve hypothesis</a>, low productivity gains now does not mean low gains forever, but these data definitely suggest low productivity gains now.
+				<br>
+				<br>
+				We can paint a slightly rosier picture by examining a slightly different BTOS question. The BTOS data also captures whether businesses think that, in six months time, they will be using AI to produce goods and services. Here, 22% of large businesses think they will; while all others floats somewhere between 11 and 17%. Overall, expectations have steadily increased since 2023, suggesting a recognition of the value of AI (in <i>general</i>), and so implying some productivity advantages. But, the great thing about having time-series data is we can estimate how reliable these expectations are by examining <i>actual</i> adoption rates. This is to say, did the expectation in early March 2025 match the actual adoption rate in early September 2025, six months later? In March, the expectation for large businesses was around 17.5%; the actual adoption was, as above, about 13%, or more precisely, about 12.5%. For micro businesses, the expectation was around 11.5%, whereas actual adoption in September was a smidge over 10%. This is to say, firms anticipations of AI adoption are greater than <i>actual</i> adoption, which is very interesting. Immediately, it means we should tame our expectations; rather than 22% of large businesses using AI in March 2026, a naive prediction would be around 14-15%, adding to the idea that adoption rates are steadily rising, or even plateauing.
+				<br>
+				<br>
+				I guess I should draw some concluding remarks. Based the data, here is what I think is reasonable to say. (1) The vast majority of businesses, regardless of size, are not using AI, never mind generative AI, to produce goods and services, while expecations that they will do are usually more optimistic than actual adoption rates. (2) Low adoption of AI, never mind generative AI, implies low productivity returns. (3) The people who tend to use generative AI are overwhelmingly computer people, followed by people in more management positions, and many of the activities these groups use generative AI for appear to be more backroom facing rather than frontline facing, though this might be disputed given how these usage categories are constructed.
+				<br>
+				<br>
+				Thus, (5) generative AI seems to be used much more for backroom activities, where the productivity gains are likely to be lower and more of the relative, one-time variety, than frontline activites, where the productivity gains are likely to be higher and more of the absolute, continuous variety. To reiterare, generative AI is less likely to be writing the next best-seller, and more likely to be writing the publisher's quarterly reports.
+			</p>
+		</div>
+
+		<h1>
+			<a href="https://www.siu2lh.com"><font color="FFFFFF">back</font></a>
+			<font color="FF7A7A">.</font>
+		</h1>
+
+	</center>
+	<br>
+	<br>
+</body>
+</html>
